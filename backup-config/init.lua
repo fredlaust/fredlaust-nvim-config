@@ -48,6 +48,9 @@ vim.o.expandtab = true
 -- Make line numbers default
 vim.o.number = true
 vim.o.relativenumber = true
+vim.cmd 'filetype plugin indent on'
+-- filetype plugin indent on ved jeg er til VimTex, men ved ærligt ikke helt hvad det er
+vim.cmd 'filetype plugin indent on'
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.o.mouse = 'a'

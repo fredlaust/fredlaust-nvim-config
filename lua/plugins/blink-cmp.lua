@@ -16,6 +16,17 @@ return { -- Autocompletion
         end
         return 'make install_jsregexp'
       end)(),
+      -- DET HER ER FRA SUSSMAN, SÅ COMMENT HVIS DET FUCKER
+      config = function()
+        require('luasnip.loaders.from_lua').lazy_load { paths = './lua/luasnip/' }
+        local ls = require 'luasnip'
+        ls.setup {
+          update_events = { 'TextChanged', 'TextChangedI' },
+          enable_autosnippets = true,
+          store_selection_keys = '<Tab>',
+        }
+      end,
+      -- SLUTTER HER
       dependencies = {
         -- `friendly-snippets` contains a variety of premade snippets.
         --    See the README about individual language/framework/plugin snippets:
@@ -61,12 +72,17 @@ return { -- Autocompletion
       documentation = { auto_show = false, auto_show_delay_ms = 500 },
     },
 
-    sources = {
-      default = { 'lsp', 'path', 'snippets', 'lazydev' },
-      providers = {
-        lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
-      },
-    },
+    -- sources = {
+    --   default = { 'lsp', 'path', 'snippets', 'lazydev', 'vimtex' },
+    --   providers = {
+    --     lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
+    --     vimtex = {
+    --       name = 'vimtex',
+    --       module = 'blink.compat.source',
+    --       score_offset = 3,
+    --     },
+    --   },
+    -- },
 
     snippets = { preset = 'luasnip' },
 
