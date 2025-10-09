@@ -1,6 +1,10 @@
 return {
   s({ trig = ';a', snippetType = 'autosnippet', desc = 'alpha', wordTrig = false }, { t '\\alpha' }),
 
+  -----------------
+  -- ENV SETUPS --
+  -----------------
+
   s(
     { trig = 'fig', snippetType = 'snippet', dscr = 'A basic figure environment' },
     fmta(
@@ -30,7 +34,7 @@ return {
       [[
         \documentclass[a4paper,11pt]{article}
         \usepackage{subfiles}
-        \include{setup}
+        \usepackage{setup}
 
         \begin{document}
 
@@ -50,7 +54,7 @@ return {
       [[
         \documentclass[a4paper,11pt]{article}
         \usepackage{subfiles}
-        \include{setup}
+        \usepackage{setup}
 
         \begin{document}
 
@@ -83,7 +87,7 @@ return {
       [[
         \documentclass[a4paper,11pt]{article}
         \usepackage{subfiles}
-        \include{setup}
+        \usepackage{setup}
 
         \begin{document}
         <>      
@@ -102,9 +106,9 @@ return {
         \ProvidesPackage{setup}
         \usepackage[headheight=14pt, top=3cm, bottom=3cm, left=3cm, right=3cm]{geometry}
         \usepackage{graphicx}  
+        \usepackage[utf8]{inputenc}
         %\usepackage{showframe}     %Can be used to see the layout frame
         \usepackage{wrapfig}
-        %\usepackage[danish]{babel}
         \usepackage[backend=biber, sorting=none]{biblatex}
         \usepackage[toc,page]{appendix}
         \renewcommand\appendixtocname{Appendices}
@@ -136,39 +140,24 @@ return {
         \usepackage{color}
         \usepackage{hyperref}
         \usepackage{booktabs}
-        %\usepackage{todonotes}
         \usepackage{marginnote}
         \usepackage{enumitem}
-        %\usepackage{soul}
-        %\usepackage{natbib}
         \usepackage[nottoc,numbib]{tocbibind}
         \usepackage{setspace}
-        \usepackage{booktabs}
-        \usepackage[utf8]{inputenc}
-        % \usepackage[latin1]{inputenc}
         \usepackage[siunitx]{circuitikz}
         \usepackage{amsmath}
         \usepackage{gensymb}
         \usepackage{listings}
         \usepackage{minted}
-        %\usepackage{pgfplots}
         \usepackage{makecell}
-        \usepackage[siunitx]{circuitikz}
         \usepackage{pgfkeys}
         \usepackage{csquotes}
         \usepackage{tikz}
         \usepackage{breqn} % For automatic line breaking in equations
-        \usepackage{graphicx}
         \usepackage{array}
-        %Kommenteret ud, da vi ikke behøver det der draft mark for nu
-        %\usepackage[firstpage]{draftwatermark}
-        %Kommenteret ud da vi ikke skriver på dansk
-        %\usepackage[danish]{babel}
         \usepackage{graphics}
-        \usepackage{amsmath}
         \setlength{\mathindent}{0pt} % Ensure no indentation for equations
-        %\usepackage{background}
-        % \backgroundsetup{bottom,contents={\includegraphics[width=\paperwidth,height=\paperheight,angle=-45]{Billeder/Forside.png}}}
+        \addbibresource{references.bib}
 
         \definecolor{comment}{rgb}{0,0.3,0}
         \definecolor{number}{rgb}{0.5,0.5,0.5}
@@ -191,7 +180,6 @@ return {
 
         \setlist{nolistsep}
 
-
         \pagestyle{fancy}
 
         \makeatletter
@@ -209,7 +197,6 @@ return {
         \renewcommand{\sectionmark}[1]{\markboth{}{#1}}
         \renewcommand{\subsectionmark}[1]{}% Remove \subsection from header
 
-
         \cfoot{\thepage\ of \pageref{LastPage}}
 
         \titlespacing*{\section}{0pt}{0.5cm}{0cm}
@@ -221,10 +208,6 @@ return {
         \DeclareMathOperator{\cosinv}{cos^{-1}}
         \DeclareMathOperator{\taninv}{sin^{-1}}
 
-        %\usepackage{biblatex} % Noget a la gøre vi kan bruge vores Zotero
-        %\usepackage{bibtex}
-        %\addbibresource{references-2.bib}
-
         %prøver at genkode paragraph commanden, til at være en overskrift: https://tex.stackexchange.com/questions/60209/how-to-add-an-extra-level-of-sections-with-headings-below-subsubsection
 
         \makeatletter
@@ -235,8 +218,6 @@ return {
         \makeatother
         \setcounter{secnumdepth}{4} % how many sectioning levels to assign numbers to
         %måske man også bare kunne have brugt titlesec pakken, men fuck det
-
-        % \bibliographystyle{unsrt}
         <>
         ]],
       { i(1, '') }
