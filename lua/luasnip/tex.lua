@@ -1,6 +1,4 @@
 return {
-  s({ trig = ';a', snippetType = 'autosnippet', desc = 'alpha', wordTrig = false }, { t '\\alpha' }),
-
   -----------------
   -- ENV SETUPS --
   -----------------
@@ -29,7 +27,7 @@ return {
   -----------------
   -- Setup for standard main doc
   s(
-    { trig = ';main', snippetType = 'snippet', desc = 'Basic setup for main doc', wordTrig = false },
+    { trig = ';main', snippetType = 'snippet', desc = 'Basic setup for main doc' },
     fmta(
       [[
         \documentclass[a4paper,11pt]{article}
@@ -49,7 +47,7 @@ return {
 
   -- Setup for standard main doc for latex report writing with sources
   s(
-    { trig = ';main-with-sources', snippetType = 'snippet', desc = 'Basic setup for main doc', wordTrig = false },
+    { trig = ';main-with-sources', snippetType = 'snippet', desc = 'Basic setup for main doc', regTrig = false },
     fmta(
       [[
         \documentclass[a4paper,11pt]{article}
@@ -82,7 +80,7 @@ return {
 
   -- Setup for standard subfile
   s(
-    { trig = ';sub', snippetType = 'snippet', desc = 'Basic setup for main doc', wordTrig = false },
+    { trig = ';sub', snippetType = 'snippet', desc = 'Basic setup for main doc' },
     fmta(
       [[
         \documentclass[a4paper,11pt]{article}
@@ -100,7 +98,7 @@ return {
 
   -- Setup for standard setup
   s(
-    { trig = ';setup', snippetType = 'snippet', desc = 'Basic setup for main doc', wordTrig = false },
+    { trig = ';setup', snippetType = 'snippet', desc = 'Basic setup for main doc' },
     fmta(
       [[
         \ProvidesPackage{setup}
@@ -219,6 +217,36 @@ return {
         \setcounter{secnumdepth}{4} % how many sectioning levels to assign numbers to
         %måske man også bare kunne have brugt titlesec pakken, men fuck det
         <>
+        ]],
+      { i(1, '') }
+    )
+  ),
+  -----------------
+  -- LIST SETUPS --
+  -----------------
+  -- Simple item
+  s({ trig = 'item', snippetType = 'snippet', desc = 'Item for list' }, { t '\\item{', i(1), t '}' }),
+
+  -- Standard unordered list
+  s(
+    { trig = ';ulist', snippetType = 'snippet', desc = 'Standard unordered list' },
+    fmta(
+      [[
+        \begin{itemize}
+            \item{<>}
+        \end{itemize}
+        ]],
+      { i(1, '') }
+    )
+  ),
+  -- Stanard enumerated list
+  s(
+    { trig = ';nlist', snippetType = 'snippet', desc = 'Standard unordered list' },
+    fmta(
+      [[
+        \begin{enumerate}
+            \item{<>}
+        \end{enumerate}
         ]],
       { i(1, '') }
     )

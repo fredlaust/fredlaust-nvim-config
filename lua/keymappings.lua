@@ -43,3 +43,6 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set('n', '<C-æ>', ':Neotree toggle<CR>')
 
 -- VimTex keymaps
+vim.keymap.set('i', '<C-s>', function()
+  require('cmp_vimtex.search').search_menu()
+end)
