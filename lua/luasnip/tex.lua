@@ -27,7 +27,7 @@ return {
   -----------------
   -- Setup for standard main doc
   s(
-    { trig = ';main', snippetType = 'snippet', desc = 'Basic setup for main doc' },
+    { trig = ';main', snippetType = 'snippet', desc = 'Basic setup for main doc', trigEngine = 'plain' },
     fmta(
       [[
         \documentclass[a4paper,11pt]{article}

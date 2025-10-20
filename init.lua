@@ -5,11 +5,6 @@ vim.g.maplocalleader = ' '
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = false
 
-require 'autcmds'
-require 'keymappings'
-require 'plugins-config'
-require 'settings'
-
 -- [[ Install `lazy.nvim` plugin manager ]]
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -47,3 +42,11 @@ require('lazy').setup({
     },
   },
 })
+
+-- Importerer andre config filer
+require 'autcmds'
+require 'keymappings'
+require 'plugins-config'
+require 'settings'
+
+vim.env.PATH = vim.env.HOME .. '/node_modules/.bin:' .. vim.env.PATH

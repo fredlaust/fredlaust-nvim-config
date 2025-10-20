@@ -1,5 +1,5 @@
 return {
-
+  -- husk at installere markdownlint-cli via npm
   { -- Linting
     'mfussenegger/nvim-lint',
     event = { 'BufReadPre', 'BufNewFile' },

@@ -6,11 +6,6 @@ return {
       require('cmp_vimtex').setup {}
     end,
   },
-  {
-    'saghen/blink.compat',
-    version = '*',
-    opts = { impersonate_nvim_cmp = false },
-  },
   -- {
   --   'saghen/blink.cmp',
   --   dependencies = {

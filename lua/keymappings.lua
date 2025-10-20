@@ -41,8 +41,35 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- MINE EGNE KEYMAPS I GUESS
 -- Toggler Neotree
 vim.keymap.set('n', '<C-æ>', ':Neotree toggle<CR>')
+-- Remaps til scrolling half-page, så den også centrerer
+--nnoremap('<C-d>', '<C-d>zz')
+--nnoremap('<C-u>', '<C-u>zz')
 
+-- Luasnip keymaps
+local ls = require 'luasnip'
+
+vim.keymap.set({ 'i' }, '<C-K>', function()
+  ls.expand()
+end, { silent = true })
+
+vim.keymap.set({ 'i', 's' }, '<C-L>', function()
+  ls.jump(1)
+end, { silent = true })
+
+vim.keymap.set({ 'i', 's' }, '<C-H>', function()
+  ls.jump(-1)
+end, { silent = true })
+
+vim.keymap.set({ 'i', 's' }, '<C-E>', function()
+  if ls.choice_active() then
+    ls.change_choice(1)
+  end
+end, { silent = true })
+--
 -- VimTex keymaps
-vim.keymap.set('i', '<C-s>', function()
-  require('cmp_vimtex.search').search_menu()
-end)
+-- vim.keymap.set('i', '<C-s>', function()
+--   require('cmp_vimtex.search').search_menu()
+-- end)
+
+-- Typst keymaps
+-- vim.keymap.set('n', '<C-s>', ':TypstPreview<CR>')
