@@ -66,10 +66,8 @@ vim.keymap.set({ 'i', 's' }, '<C-E>', function()
   end
 end, { silent = true })
 --
--- VimTex keymaps
--- vim.keymap.set('i', '<C-s>', function()
---   require('cmp_vimtex.search').search_menu()
--- end)
+-- Markview keympas
+vim.keymap.set('n', '<C-m>', ':Markview<CR>')
 
--- Typst keymaps
--- vim.keymap.set('n', '<C-s>', ':TypstPreview<CR>')
+-- Ved ikke hvorfor, men s virker ikke, så remapper her
+vim.keymap.set('n', 's', 'cl')

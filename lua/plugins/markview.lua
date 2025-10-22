@@ -6,6 +6,7 @@ return {
   -- For `nvim-treesitter` users.
   priority = 49,
 
+  ft = { 'markdown', 'typst', 'latex' },
   -- For blink.cmp's completion
   -- source
   dependencies = {
