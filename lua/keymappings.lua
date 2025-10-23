@@ -35,39 +35,41 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- vim.keymap.set("n", "<C-S-l>", "<C-w>L", { desc = "Move window to the right" })
 -- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
---
---
 
 -- MINE EGNE KEYMAPS I GUESS
--- Toggler Neotree
-vim.keymap.set('n', '<C-æ>', ':Neotree toggle<CR>')
 -- Remaps til scrolling half-page, så den også centrerer
---nnoremap('<C-d>', '<C-d>zz')
---nnoremap('<C-u>', '<C-u>zz')
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
+
+-- Neotree keymaps
+vim.keymap.set('n', '<C-æ>', '<CMD>Neotree toggle<CR>')
 
 -- Luasnip keymaps
 local ls = require 'luasnip'
 
 vim.keymap.set({ 'i' }, '<C-K>', function()
-  ls.expand()
+    ls.expand()
 end, { silent = true })
 
 vim.keymap.set({ 'i', 's' }, '<C-L>', function()
-  ls.jump(1)
+    ls.jump(1)
 end, { silent = true })
 
 vim.keymap.set({ 'i', 's' }, '<C-H>', function()
-  ls.jump(-1)
+    ls.jump(-1)
 end, { silent = true })
 
 vim.keymap.set({ 'i', 's' }, '<C-E>', function()
-  if ls.choice_active() then
-    ls.change_choice(1)
-  end
+    if ls.choice_active() then
+        ls.change_choice(1)
+    end
 end, { silent = true })
 --
 -- Markview keympas
-vim.keymap.set('n', '<C-m>', ':Markview<CR>')
+vim.keymap.set('n', '<C-m>', '<CMD>Markview<CR>')
 
 -- Ved ikke hvorfor, men s virker ikke, så remapper her
 vim.keymap.set('n', 's', 'cl')
+
+-- Oil keymaps
+vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
