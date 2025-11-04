@@ -73,3 +73,6 @@ vim.keymap.set('n', 's', 'cl')
 
 -- Oil keymaps
 vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
+
+-- Centerpad keymaps
+vim.keymap.set('n', '<leader>c', '<cmd>Centerpad<cr>', { silent = true, noremap = true })
