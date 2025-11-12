@@ -40,6 +40,7 @@ require('lazy').setup({
             task = '📌',
             lazy = '💤 ',
         },
+        border = 'rounded',
     },
 })
 
@@ -51,6 +52,6 @@ require 'settings'
 
 -- Ændre visual mode colors
 -- https://vonheikemen.github.io/learn-nvim/feature/colorscheme.html
-vim.cmd 'highlight Visual guibg=#404040'
+-- vim.cmd 'highlight Visual guibg=#404040'
 
 vim.env.PATH = vim.env.HOME .. '/node_modules/.bin:' .. vim.env.PATH
