@@ -50,6 +50,19 @@ require 'keymappings'
 require 'plugins-config'
 require 'settings'
 
+--LSP-specific configs
+-- vim.lsp.config('tinymist', {
+--
+--     settings = {
+--
+--         formatterMode = 'typstyle',
+--
+--         exportPdf = 'onType',
+--
+--         semanticTokens = 'disable',
+--     },
+-- })
+
 -- Ændre visual mode colors
 -- https://vonheikemen.github.io/learn-nvim/feature/colorscheme.html
 -- vim.cmd 'highlight Visual guibg=#404040'

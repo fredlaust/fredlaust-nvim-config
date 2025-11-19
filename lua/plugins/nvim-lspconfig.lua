@@ -204,6 +204,38 @@ return {
             },
         }
 
+        --LSP-specifikke settings
+        -- Tinymist (typst)
+        vim.lsp.config('tinymist', {
+            on_attach = function(client, bufnr)
+                -- Keymap til at pin en file til at være main så vi kan arbejde med flere filer
+                vim.keymap.set('n', '<leader>tp', function()
+                    client:exec_cmd({
+
+                        title = 'pin',
+                        command = 'tinymist.pinMain',
+                        arguments = { vim.api.nvim_buf_get_name(0) },
+                    }, { bufnr = bufnr })
+                end, { desc = '[T]inymist [P]in', noremap = true })
+
+                -- Keymap til at unpin
+                vim.keymap.set('n', '<leader>tu', function()
+                    client:exec_cmd({
+
+                        title = 'unpin',
+                        command = 'tinymist.pinMain',
+                        arguments = { vim.v.null },
+                    }, { bufnr = bufnr })
+                end, { desc = '[T]inymist [U]npin', noremap = true })
+            end,
+
+            settings = {
+
+                formatterMode = 'typstyle',
+                exportPdf = 'onType',
+                semanticTokens = 'disable',
+            },
+        })
         -- Ensure the servers and tools above are installed
         --
         -- To check the current status of installed tools and/or manually install
