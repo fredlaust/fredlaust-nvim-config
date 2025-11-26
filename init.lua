@@ -46,8 +46,8 @@ require('lazy').setup({
 
 -- Importerer andre config filer
 require 'autcmds'
-require 'keymappings'
 require 'plugins-config'
+require 'keymappings'
 require 'settings'
 
 --LSP-specific configs

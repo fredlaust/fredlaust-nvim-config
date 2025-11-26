@@ -76,3 +76,16 @@ vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
 
 -- Centerpad keymaps
 vim.keymap.set('n', '<leader>c', '<cmd>Centerpad<cr>', { silent = true, noremap = true })
+
+-- Snacks
+-- vim.keymap.set('n', '<leader>g', Snacks.lazgit.open)
+
+-- Obsidian
+vim.keymap.set('n', '<leader>of', '<cmd>Obsidian quick_switch<cr>') -- f som i find files ligesom i telescope. lidt mere ergonomic end q
+vim.keymap.set('n', '<leader>ob', '<cmd>Obsidian backlinks<cr>')
+vim.keymap.set('n', '<leader>on', '<cmd>Obsidian new<cr>')
+vim.keymap.set('n', '<leader>os', '<cmd>Obsidian search<cr>')
+vim.keymap.set('n', '<leader>op', '<cmd>Obsidian paste_image<cr>')
+vim.keymap.set('n', '<leader>oc', '<cmd>Obsidian check<cr>')
+vim.keymap.set('n', '<leader>ot', '<cmd>Obsidian tags<cr>')
+vim.keymap.set('n', '<leader>oi', '<cmd>Obsidian toc<cr>') -- i som i indholdsfortegnelse

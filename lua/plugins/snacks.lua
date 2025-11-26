@@ -23,7 +23,10 @@ return {
         -- input = { enabled = true },
         -- keymap = { enabled = true },
         -- layout = { enabled = true },
-        lazygit = { enabled = true },
+        lazygit = {
+            enabled = true,
+            configure = true,
+        },
         -- notifier = { enabled = true },
         -- notify = { enabled = true },
         -- picker = { enabled = true },
@@ -41,5 +44,13 @@ return {
         -- words = { enabled = true },
         -- zen = { enabled = true },
     },
-    keys = {},
+    keys = {
+        {
+            '<leader>gg',
+            function()
+                Snacks.lazygit()
+            end,
+            desc = 'Lazygit',
+        },
+    },
 }
