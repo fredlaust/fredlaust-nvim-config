@@ -490,7 +490,7 @@ hl('@markup.strikethrough', { strikethrough = true })
 hl('@markup.underline', { underline = true })
 
 hl('@markup.heading', { link = 'Title' })
-hl('@markup.heading.1', { link = 'Title' })
+hl('@markup.heading.1', { fg = c.magenta })
 hl('@markup.heading.2', { link = 'Title' })
 hl('@markup.heading.3', { link = 'Title' })
 hl('@markup.heading.4', { link = 'Title' })

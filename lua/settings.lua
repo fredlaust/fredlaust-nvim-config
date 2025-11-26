@@ -14,7 +14,7 @@ vim.o.number = true
 vim.o.relativenumber = true
 
 -- Sætter conceallevel. Er relevant for obsidian.nvim
-vim.opt_local.conceallevel = 2
+vim.opt_local.conceallevel = 3
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.o.mouse = 'a'

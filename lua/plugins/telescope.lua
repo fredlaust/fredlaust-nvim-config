@@ -14,6 +14,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
                 return vim.fn.executable 'make' == 1
             end,
         },
+
         { 'nvim-telescope/telescope-ui-select.nvim' },
 
         -- Useful for getting pretty icons, but requires a Nerd Font.
@@ -26,12 +27,6 @@ return { -- Fuzzy Finder (files, lsp, etc)
         -- [[ Configure Telescope ]]
         -- See `:help telescope` and `:help telescope.setup()`
         require('telescope').setup {
-            -- defaults = {
-            --   mappings = {
-            --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-            --   },
-            -- },
-            -- pickers = {}
             extensions = {
                 ['ui-select'] = {
                     require('telescope.themes').get_dropdown(),

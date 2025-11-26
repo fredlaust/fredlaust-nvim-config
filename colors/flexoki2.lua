@@ -1,6 +1,6 @@
 vim.cmd.highlight 'clear'
 vim.o.termguicolors = true
-vim.g.colors_name = 'flexoki'
+vim.g.colors_name = 'flexoki2'
 
 --
 -- Flexoki palette
@@ -458,12 +458,12 @@ hl('@markup.strikethrough', { strikethrough = true })
 hl('@markup.underline', { underline = true })
 
 hl('@markup.heading', { link = 'Title' })
-hl('@markup.heading.1', { link = 'Title' })
-hl('@markup.heading.2', { link = 'Title' })
-hl('@markup.heading.3', { link = 'Title' })
-hl('@markup.heading.4', { link = 'Title' })
-hl('@markup.heading.5', { link = 'Title' })
-hl('@markup.heading.6', { link = 'Title' })
+hl('@markup.heading.1', { fg = c.magenta })
+hl('@markup.heading.2', { fg = c.orange })
+hl('@markup.heading.3', { fg = c.yellow })
+hl('@markup.heading.4', { fg = c.blue })
+hl('@markup.heading.5', { fg = c.cyan })
+hl('@markup.heading.6', { fg = c.green })
 
 hl('@markup.quote', { italic = true })
 hl('@markup.math', { link = 'Special' })
@@ -488,6 +488,21 @@ hl('@tag.builtin', { link = '@tag' })
 hl('@tag.attribute', { fg = c.tx2 })
 hl('@tag.delimiter', { fg = c.tx2 })
 
+-- RenderMarkdown
+-- hl('@markup.heading.1.markdown', { fg = c.magenta })
+-- hl('@markup.heading.2.markdown', { fg = c.orange })
+-- hl('@markup.heading.3.markdown', { fg = c.yellow })
+-- hl('@markup.heading.4.markdown', { fg = c.blue })
+-- hl('@markup.heading.5.markdown', { fg = c.cyan })
+-- hl('@markup.heading.6.markdown', { fg = c.green })
+
+-- hl('RenderMarkdownH1Bg', { link = c.bg })
+-- hl('RenderMarkdownH2Bg', { link = c.bg })
+-- hl('RenderMarkdownH3Bg', { link = c.bg })
+-- hl('RenderMarkdownH4Bg', { link = c.bg })
+-- hl('RenderMarkdownH5Bg', { link = c.bg })
+-- hl('RenderMarkdownH6Bg', { link = c.bg })
+--
 -- LSP semantic token highlights
 hl('@lsp.type.comment', { link = '@comment' })
 hl('@lsp.type.enum', { link = '@type' })

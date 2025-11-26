@@ -1,4 +1,3 @@
--- TODO: Tilføj funktion til at åbne nye noter fra any dir, og så ender det henne vault
 return {
     'obsidian-nvim/obsidian.nvim',
     version = '*',
@@ -21,7 +20,7 @@ return {
 
         completion = {
             nvim_cmp = true,
-            -- min_chars = 2,
+            min_chars = 1,
         },
 
         picker = {
@@ -29,6 +28,10 @@ return {
         },
 
         -- ui = { enable = false },
+
+        note_id_func = function(title)
+            return title
+        end,
 
         new_notes_location = 'notes_subdir',
     },
