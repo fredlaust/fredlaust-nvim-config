@@ -66,7 +66,7 @@ vim.keymap.set({ 'i', 's' }, '<C-E>', function()
 end, { silent = true })
 --
 -- Markview keympas
-vim.keymap.set('n', '<C-m>', '<CMD>Markview<CR>')
+-- vim.keymap.set('n', '<C-m>', '<CMD>Markview<CR>')
 
 -- Ved ikke hvorfor, men s virker ikke, så remapper her
 vim.keymap.set('n', 's', 'cl')
@@ -74,11 +74,7 @@ vim.keymap.set('n', 's', 'cl')
 -- Oil keymaps
 vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
 
--- Centerpad keymaps
-vim.keymap.set('n', '<leader>c', '<cmd>Centerpad<cr>', { silent = true, noremap = true })
-
 -- Snacks
--- vim.keymap.set('n', '<leader>g', Snacks.lazgit.open)
 
 -- Obsidian
 vim.keymap.set('n', '<leader>of', '<cmd>Obsidian quick_switch<cr>') -- f som i find files ligesom i telescope. lidt mere ergonomic end q

@@ -34,7 +34,7 @@ return {
         -- quickfile = { enabled = true },
         -- rename = { enabled = true },
         -- scope = { enabled = true },
-        -- scratch = { enabled = true },
+        scratch = { enabled = true },
         -- scroll = { enabled = true },
         -- statuscolumn = { enabled = true },
         -- terminal = { enabled = true },
@@ -51,6 +51,22 @@ return {
                 Snacks.lazygit()
             end,
             desc = 'Lazygit',
+        },
+
+        {
+            '<leader>S',
+            function()
+                Snacks.scratch()
+            end,
+            desc = 'Toggle Scratch Buffer',
+        },
+
+        {
+            '<leader>gs',
+            function()
+                Snacks.scratch.select()
+            end,
+            desc = 'Select Scratch Buffer',
         },
     },
 }

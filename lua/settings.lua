@@ -79,6 +79,9 @@ vim.o.scrolloff = 12
 -- See `:help 'confirm'`
 vim.o.confirm = true
 
+-- Sætter QT_SCALE_FACTOR
+vim.env.QT_SCALE_FACTOR = '1.0'
+
 -- Setup default and load color scheme
 require('flexoki').setup()
 vim.cmd.colorscheme 'flexoki'
