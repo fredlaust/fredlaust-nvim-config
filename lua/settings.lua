@@ -65,6 +65,9 @@ vim.o.splitbelow = true
 vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
+-- fjerner end of file tilde ting
+vim.opt.fillchars:append { eob = ' ' }
+
 -- Preview substitutions live, as you type!
 vim.o.inccommand = 'split'
 

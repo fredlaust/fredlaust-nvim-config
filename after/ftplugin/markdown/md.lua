@@ -1,13 +1,9 @@
-vim.keymap.set('n', '<C-p>', function()
-    vim.cmd [[
-    setlocal wrapmargin=33
+vim.cmd [[
     setlocal formatoptions+=t
     setlocal linebreak
     setlocal wrap
-    setlocal foldcolumn=9
-    setlocal signcolumn=yes:9
+    setlocal wrapmargin=5
   ]]
-end, { desc = 'Enable wrapping and layout options' })
 
 -- https://www.reddit.com/r/neovim/comments/ynm6n6/comment/iva5pgg/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
 -- Hentede den nedenstående funktionalitet fra reddit

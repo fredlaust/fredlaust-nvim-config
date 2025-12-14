@@ -85,3 +85,11 @@ vim.keymap.set('n', '<leader>op', '<cmd>Obsidian paste_image<cr>')
 vim.keymap.set('n', '<leader>oc', '<cmd>Obsidian check<cr>')
 vim.keymap.set('n', '<leader>ot', '<cmd>Obsidian tags<cr>')
 vim.keymap.set('n', '<leader>oi', '<cmd>Obsidian toc<cr>') -- i som i indholdsfortegnelse
+vim.keymap.set('v', '<leader>ol', ':Obsidian link<cr>')
+vim.keymap.set('v', '<leader>oe', '<cmd>Obsidian extract_note<cr>')
+vim.keymap.set('v', '<leader>on', '<cmd>Obsidian link_new<cr>')
+
+-- NoNeckPain
+vim.keymap.set('n', '<leader>cc', '<cmd>NoNeckPain<cr>', { desc = '[C]enter with NoNeckPain' })
+vim.keymap.set('n', '<leader>cu', '<cmd>NoNeckPainWidthUp<cr>', { desc = '[C]enter with NoNeckPain' })
+vim.keymap.set('n', '<leader>cd', '<cmd>NoNeckPainWidthDown<cr>', { desc = '[C]enter with NoNeckPain' })
