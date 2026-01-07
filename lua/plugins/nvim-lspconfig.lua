@@ -24,9 +24,6 @@ return {
         vim.api.nvim_create_autocmd('LspAttach', {
             group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
             callback = function(event)
-                -- NOTE: Remember that Lua is a real programming language, and as such it is possible
-                -- to define small helper and utility functions so you don't have to repeat yourself.
-                --
                 -- In this case, we create a function that lets us more easily define mappings specific
                 -- for LSP related items. It sets the mode, buffer and description for us each time.
                 local map = function(keys, func, desc, mode)
@@ -171,71 +168,79 @@ return {
         --  - settings (table): Override the default settings passed when initializing the server.
         --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 
-        local servers = {
-            clangd = {},
-            -- gopls = {},
-            pyright = {},
-            rust_analyzer = {},
-            tinymist = {},
-            zls = {},
+        local servers =
+            {
+                clangd = {},
+                gopls = {},
+                pyright = {},
+                rust_analyzer = {},
+                tinymist = {},
+                zls = {},
 
-            -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
-            --
-            -- Some languages (like typescript) have entire language plugins that can be useful:
-            --    https://github.com/pmizio/typescript-tools.nvim
-            --
-            -- But for many setups, the LSP (`ts_ls`) will work just fine
-            -- ts_ls = {},
-            --
+                -- See `:help lspconfig-all` for a list of all the pre-configured LSPs
+                --
+                -- Some languages (like typescript) have entire language plugins that can be useful:
+                --    https://github.com/pmizio/typescript-tools.nvim
+                --
+                -- But for many setups, the LSP (`ts_ls`) will work just fine
+                -- ts_ls = {},
+                --
 
-            lua_ls = {
-                -- cmd = { ... },
-                -- filetypes = { ... },
-                -- capabilities = {},
-                settings = {
-                    Lua = {
-                        completion = {
-                            callSnippet = 'Replace',
+                lua_ls = {
+                    -- cmd = { ... },
+                    -- filetypes = { ... },
+                    -- capabilities = {},
+                    --
+                    settings = {
+                        Lua = {
+                            completion = {
+                                callSnippet = 'Replace',
+                            },
+                            diagnostics = {
+                                disable = { 'missing-fields' },
+                            },
+                            workspace = {
+                                -- Path to your Addons directory
+                                userThirdParty = vim.fn.expand '~/.local/share/LuaAddons',
+                                checkThirdParty = 'Apply',
+                                -- '${3rd}/love2d/library',
+                            },
                         },
-                        -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-                        -- diagnostics = { disable = { 'missing-fields' } },
                     },
                 },
             },
-        }
+            --LSP-specifikke settings
+            -- Tinymist (typst)
+            vim.lsp.config('tinymist', {
+                on_attach = function(client, bufnr)
+                    -- Keymap til at pin en file til at være main så vi kan arbejde med flere filer
+                    vim.keymap.set('n', '<leader>tp', function()
+                        client:exec_cmd({
 
-        --LSP-specifikke settings
-        -- Tinymist (typst)
-        vim.lsp.config('tinymist', {
-            on_attach = function(client, bufnr)
-                -- Keymap til at pin en file til at være main så vi kan arbejde med flere filer
-                vim.keymap.set('n', '<leader>tp', function()
-                    client:exec_cmd({
+                            title = 'pin',
+                            command = 'tinymist.pinMain',
+                            arguments = { vim.api.nvim_buf_get_name(0) },
+                        }, { bufnr = bufnr })
+                    end, { desc = '[T]inymist [P]in', noremap = true })
 
-                        title = 'pin',
-                        command = 'tinymist.pinMain',
-                        arguments = { vim.api.nvim_buf_get_name(0) },
-                    }, { bufnr = bufnr })
-                end, { desc = '[T]inymist [P]in', noremap = true })
+                    -- Keymap til at unpin
+                    vim.keymap.set('n', '<leader>tu', function()
+                        client:exec_cmd({
 
-                -- Keymap til at unpin
-                vim.keymap.set('n', '<leader>tu', function()
-                    client:exec_cmd({
+                            title = 'unpin',
+                            command = 'tinymist.pinMain',
+                            arguments = { vim.v.null },
+                        }, { bufnr = bufnr })
+                    end, { desc = '[T]inymist [U]npin', noremap = true })
+                end,
 
-                        title = 'unpin',
-                        command = 'tinymist.pinMain',
-                        arguments = { vim.v.null },
-                    }, { bufnr = bufnr })
-                end, { desc = '[T]inymist [U]npin', noremap = true })
-            end,
+                settings = {
 
-            settings = {
-
-                formatterMode = 'typstyle',
-                exportPdf = 'onType',
-                semanticTokens = 'disable',
-            },
-        })
+                    formatterMode = 'typstyle',
+                    exportPdf = 'onType',
+                    semanticTokens = 'disable',
+                },
+            })
         -- Ensure the servers and tools above are installed
         --
         -- To check the current status of installed tools and/or manually install

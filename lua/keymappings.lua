@@ -25,10 +25,10 @@ vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --  See `:help wincmd` for a list of all window commands
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+-- vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+-- vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+-- vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+-- vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- NOTE: Some terminals have colliding keymaps or are not able to send distinct keycodes
 -- vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })
@@ -88,6 +88,11 @@ vim.keymap.set('n', '<leader>oi', '<cmd>Obsidian toc<cr>') -- i som i indholdsfo
 vim.keymap.set('v', '<leader>ol', ':Obsidian link<cr>')
 vim.keymap.set('v', '<leader>oe', '<cmd>Obsidian extract_note<cr>')
 vim.keymap.set('v', '<leader>on', '<cmd>Obsidian link_new<cr>')
+
+-- grep vault
+vim.keymap.set('n', '<leader>og', function()
+    require('telescope.builtin').live_grep { cwd = '/home/write/Source/Obsidian-Notes/Main-Obsidian-Vault/' }
+end, { desc = 'Grep Vault' })
 
 -- NoNeckPain
 vim.keymap.set('n', '<leader>cc', '<cmd>NoNeckPain<cr>', { desc = '[C]enter with NoNeckPain' })
