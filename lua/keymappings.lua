@@ -68,8 +68,8 @@ end, { silent = true })
 -- Markview keympas
 -- vim.keymap.set('n', '<C-m>', '<CMD>Markview<CR>')
 
--- Ved ikke hvorfor, men s virker ikke, så remapper her
-vim.keymap.set('n', 's', 'cl')
+-- Ved ikke hvorfor, men s virker ikke, så remapper her (det er pga mini.surround)
+-- vim.keymap.set('n', 's', 'cl')
 
 -- Oil keymaps
 vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
@@ -96,5 +96,12 @@ end, { desc = 'Grep Vault' })
 
 -- NoNeckPain
 vim.keymap.set('n', '<leader>cc', '<cmd>NoNeckPain<cr>', { desc = '[C]enter with NoNeckPain' })
-vim.keymap.set('n', '<leader>cu', '<cmd>NoNeckPainWidthUp<cr>', { desc = '[C]enter with NoNeckPain' })
-vim.keymap.set('n', '<leader>cd', '<cmd>NoNeckPainWidthDown<cr>', { desc = '[C]enter with NoNeckPain' })
+vim.keymap.set('n', '<leader>cu', '<cmd>NoNeckPainWidthUp<cr>', { desc = '[C]enter [W]idth [U]p' })
+vim.keymap.set('n', '<leader>cd', '<cmd>NoNeckPainWidthDown<cr>', { desc = '[C]enter [W]idth [D]own' })
+
+-- Colorscheme
+vim.keymap.set('n', '<leader>1', '<cmd>colorscheme flexoki<cr>')
+vim.keymap.set('n', '<leader>2', '<cmd>colorscheme flexoki2<cr>')
+
+-- Floating terminal https://www.youtube.com/watch?v=xVKpx1Zl3ac
+vim.keymap.set('n', '<leader>tt', '<cmd>lua require("floatytermy").create_terminal()<cr>', { desc = '[T]oggle [T]erminal' })
