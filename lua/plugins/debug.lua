@@ -130,5 +130,7 @@ return {
                 detached = vim.fn.has 'win32' == 0,
             },
         }
+
+        -- TODO: Add C debugger and the sorts
     end,
 }

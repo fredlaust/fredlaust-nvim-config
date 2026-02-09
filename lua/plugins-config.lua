@@ -1,1 +1,2 @@
+--local harpoon = require 'plugins.harpoon'
 --harpoon:setup()
