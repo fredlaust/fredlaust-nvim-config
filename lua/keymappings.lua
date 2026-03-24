@@ -80,6 +80,10 @@ vim.keymap.set('n', '<leader>og', function()
     require('telescope.builtin').live_grep { cwd = '/home/write/Source/Obsidian-Notes/Main-Obsidian-Vault/' }
 end, { desc = 'Grep Vault' })
 
+--WebDev shit
+vim.keymap.set('n', '<leader>ps', '<cmd>LivePreview start')
+vim.keymap.set('n', '<leader>pc', '<cmd>LivePreview close')
+
 -- NoNeckPain
 vim.keymap.set('n', '<leader>cc', '<cmd>NoNeckPain<cr>', { desc = '[C]enter with NoNeckPain' })
 vim.keymap.set('n', '<leader>cu', '<cmd>NoNeckPainWidthUp<cr>', { desc = '[C]enter [W]idth [U]p' })
