@@ -1,9 +1,9 @@
-if vim.loop.os_uname().sysname == "Linux" then
+if vim.loop.os_uname().sysname == 'Linux' then
     path = '~/Source/Obsidian-Notes/Main-Obsidian-Vault'
-elseif vim.loop.os_uname().sysname == "Windows_NT" then
-    path = "C:\\Users\\frede\\Documents\\Obsidian Vault\\"
-else 
-    print'Error setting path for Obsidian'
+elseif vim.loop.os_uname().sysname == 'Windows_NT' then
+    path = 'C:\\Users\\frede\\Documents\\Obsidian Vault\\'
+else
+    print 'Error setting path for Obsidian'
 end
 
 return {
@@ -14,6 +14,7 @@ return {
 
     dependencies = {
         'nvim-lua/plenary.nvim',
+        'OXY2DEV/markview.nvim',
     },
     ---@module 'obsidian'
     ---@type obsidian.config
@@ -22,7 +23,7 @@ return {
         workspaces = {
             {
                 name = 'personal',
-                path = path
+                path = path,
             },
         },
 
