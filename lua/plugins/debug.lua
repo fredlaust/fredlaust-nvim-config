@@ -78,6 +78,7 @@ return {
     config = function()
         local dap = require 'dap'
         local dapui = require 'dapui'
+        local utils = require 'dap.utils'
 
         require('mason-nvim-dap').setup {
             -- Makes a best effort to setup the various debuggers with
@@ -131,6 +132,44 @@ return {
             },
         }
 
+        local JS_DEBUG_PORT = 8000
+        -- setup dap for typescript
+        dap.adapters = {
+            ['pwa-node'] = {
+                type = 'server',
+                host = 'localhost',
+                port = 8123,
+                executable = {
+                    command = 'js-debug-adapter',
+                    args = {
+                        8123,
+                        'localhost',
+                    },
+                },
+                options = {
+                    initialize_timeout_sec = 20,
+                    disconnect_timeout_sec = 5,
+                },
+            },
+        }
+
+        dap.configurations['typescript'] = {
+            {
+                type = 'pwa-node',
+                request = 'launch',
+                name = 'Launch file',
+                program = '${file}',
+                preLaunchTask = 'tsc: build - tsconfig.json',
+                cwd = '${workspaceFolder}',
+            },
+            {
+                type = 'pwa-node',
+                request = 'attach',
+                name = 'Attach to process ID',
+                processId = utils.pick_process,
+                cwd = '${workspaceFolder}',
+            },
+        }
         -- TODO: Add C debugger and the sorts
     end,
 }
