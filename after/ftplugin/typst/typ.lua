@@ -1,7 +1,7 @@
 -- Typst keymaps
-vim.keymap.set('n', '<C-å>', '<CMD>TypstPreview<CR>', { desc = 'Typst Preview in browser' })
+vim.keymap.set('n', '<leader>tP', '<CMD>TypstPreview<CR>', { desc = 'Typst Preview in browser' })
 
-vim.keymap.set('n', '<C-p>', '<CMD>TypstWatch<CR>', { desc = 'Typst P review in PDF-viewer' })
+vim.keymap.set('n', '<leader>tw', '<CMD>TypstWatch<CR>', { desc = 'Typst Preview in PDF-viewer' })
 
 vim.cmd [[
     setlocal wrapmargin=10
