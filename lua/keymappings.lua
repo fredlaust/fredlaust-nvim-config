@@ -81,8 +81,8 @@ vim.keymap.set('n', '<leader>og', function()
 end, { desc = 'Grep Vault' })
 
 --WebDev shit
-vim.keymap.set('n', '<leader>ps', '<cmd>LivePreview start')
-vim.keymap.set('n', '<leader>pc', '<cmd>LivePreview close')
+vim.keymap.set('n', '<leader>ps', '<cmd>LivePreview start<CR>')
+vim.keymap.set('n', '<leader>pc', '<cmd>LivePreview close<CR>')
 
 -- NoNeckPain
 vim.keymap.set('n', '<leader>cc', '<cmd>NoNeckPain<cr>', { desc = '[C]enter with NoNeckPain' })

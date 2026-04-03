@@ -94,6 +94,8 @@ return {
             ensure_installed = {
                 -- Update this to ensure that you have the debuggers for the langs you want
                 'delve',
+                'codelldb',
+                'js-debug-adapter',
             },
         }
 
@@ -151,6 +153,14 @@ return {
                     disconnect_timeout_sec = 5,
                 },
             },
+            ['codelldb'] = {
+                type = 'server',
+                port = '${port}',
+                executable = {
+                    command = 'codelldb',
+                    args = { '--port', '${port}' },
+                },
+            },
         }
 
         dap.configurations['typescript'] = {
@@ -170,6 +180,5 @@ return {
                 cwd = '${workspaceFolder}',
             },
         }
-        -- TODO: Add C debugger and the sorts
     end,
 }
