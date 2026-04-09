@@ -21,19 +21,21 @@ return { -- Highlight, edit, and navigate code
             end,
         })
 
+        -- STOPPET FOR NU, det er stress naar den hele tiden ignorer shit og giver warnings.
+        -- saa hellere install naar det er noedvendigt
         -- autocmd til at auto install
-        vim.api.nvim_create_autocmd('FileType', {
-            callback = function(ev)
-                local lang = vim.treesitter.language.get_lang(vim.bo[ev.buf].filetype)
-                if lang then
-                    pcall(function()
-                        require('nvim-treesitter').install { lang }
-                    end)
-                end
-                pcall(vim.treesitter.start)
-                vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-            end,
-        })
+        -- vim.api.nvim_create_autocmd('FileType', {
+        --     callback = function(ev)
+        --         local lang = vim.treesitter.language.get_lang(vim.bo[ev.buf].filetype)
+        --         if lang then
+        --             pcall(function()
+        --                 require('nvim-treesitter').install { lang }
+        --             end)
+        --         end
+        --         pcall(vim.treesitter.start)
+        --         vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        --     end,
+        -- })
 
         -- Ensure installed erstatning
         local ensureInstalled = {
