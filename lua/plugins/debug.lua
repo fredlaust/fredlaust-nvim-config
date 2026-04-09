@@ -32,6 +32,13 @@ return {
             desc = 'Debug: Start/Continue',
         },
         {
+            '<F6>',
+            function()
+                require('dap').terminate()
+            end,
+            desc = 'Debug: Terminate',
+        },
+        {
             '<F1>',
             function()
                 require('dap').step_into()
@@ -157,7 +164,7 @@ return {
                 type = 'server',
                 port = '${port}',
                 executable = {
-                    command = 'codelldb',
+                    command = vim.fn.stdpath 'data' .. '/mason/bin/codelldb',
                     args = { '--port', '${port}' },
                 },
             },
