@@ -4,23 +4,66 @@ return { -- Highlight, edit, and navigate code
 
     build = ':TSUpdate',
 
-    main = 'nvim-treesitter.configs', -- Sets main module to use for opts
+    main = 'nvim-treesitter', -- Sets main module to use for opts
 
-    -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
-    opts = {
-        ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'latex' },
+    branch = 'main',
 
-        -- Autoinstall languages that are not installed
-        auto_install = true,
-        highlight = {
-            enable = true,
-            -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
-            --  If you are experiencing weird indenting issues, add the language to
-            --  the list of additional_vim_regex_highlighting and disabled languages for indent.
-            additional_vim_regex_highlighting = { 'ruby' },
-        },
-        indent = { enable = true, disable = { 'ruby', 'supercollider' } },
-    },
+    opts = {},
+
+    init = function()
+        -- autocmd til at lave highlighting og indenting
+        vim.api.nvim_create_autocmd('FileType', {
+            callback = function()
+                -- Enable treesitter highlighting and disable regex syntax
+                pcall(vim.treesitter.start)
+                -- Enable treesitter-based indentation
+                vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+            end,
+        })
+
+        -- autocmd til at auto install
+        vim.api.nvim_create_autocmd('FileType', {
+            callback = function(ev)
+                local lang = vim.treesitter.language.get_lang(vim.bo[ev.buf].filetype)
+                if lang then
+                    pcall(function()
+                        require('nvim-treesitter').install { lang }
+                    end)
+                end
+                pcall(vim.treesitter.start)
+                vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+            end,
+        })
+
+        -- Ensure installed erstatning
+        local ensureInstalled = {
+            'bash',
+            'c',
+            'cpp',
+            'typescript',
+            'python',
+            'diff',
+            'html',
+            'lua',
+            'luadoc',
+            'markdown',
+            'markdown_inline',
+            'query',
+            'vim',
+            'vimdoc',
+            'latex',
+            'typst',
+        }
+
+        local alreadyInstalled = require('nvim-treesitter.config').get_installed()
+        local parsersToInstall = vim.iter(ensureInstalled)
+            :filter(function(parser)
+                return not vim.tbl_contains(alreadyInstalled, parser)
+            end)
+            :totable()
+        require('nvim-treesitter').install(parsersToInstall)
+    end,
+
     priority = 50,
     -- There are additional nvim-treesitter modules that you can use to interact
     -- with nvim-treesitter. You should go explore a few and see what interests you:
