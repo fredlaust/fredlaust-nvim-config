@@ -10,6 +10,8 @@ return { -- Highlight, edit, and navigate code
 
     opts = {},
 
+    -- enabled = false,
+
     init = function()
         -- autocmd til at lave highlighting og indenting
         vim.api.nvim_create_autocmd('FileType', {
@@ -39,22 +41,53 @@ return { -- Highlight, edit, and navigate code
 
         -- Ensure installed erstatning
         local ensureInstalled = {
-            'bash',
+            -- Languages
             'c',
             'cpp',
-            'typescript',
             'python',
-            'diff',
-            'html',
             'lua',
-            'luadoc',
+            'bash',
+            'vim',
+            'hyprlang',
+            'javascript',
+            'typescript',
+            'c_sharp',
+            'rust',
+            'go',
+            'zig',
+            'fish',
+
+            -- Markup
+            'html',
             'markdown',
             'markdown_inline',
-            'query',
-            'vim',
-            'vimdoc',
             'latex',
             'typst',
+            'bibtex',
+            'css',
+            'toml',
+            'yaml',
+
+            -- Docs
+            'luadoc',
+            'vimdoc',
+
+            -- Misc
+            'git_config',
+            'gitcommit',
+            'gitignore',
+            'diff',
+            'query',
+            'desktop',
+            'json',
+            'make',
+            'qmljs',
+            'ssh_config',
+            'csv',
+            'requirements',
+            'supercollider',
+            'tmux',
+            'zathurarc',
         }
 
         local alreadyInstalled = require('nvim-treesitter.config').get_installed()
