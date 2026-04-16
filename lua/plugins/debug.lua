@@ -160,6 +160,7 @@ return {
                     disconnect_timeout_sec = 5,
                 },
             },
+
             ['codelldb'] = {
                 type = 'server',
                 port = '${port}',
@@ -167,6 +168,12 @@ return {
                     command = vim.fn.stdpath 'data' .. '/mason/bin/codelldb',
                     args = { '--port', '${port}' },
                 },
+            },
+
+            ['dart'] = {
+                type = 'executable',
+                command = vim.fn.stdpath 'data' .. '/mason/bin/dart-debug-adapter',
+                args = { 'flutter' },
             },
         }
 
@@ -186,6 +193,16 @@ return {
                 processId = utils.pick_process,
                 cwd = '${workspaceFolder}',
             },
+        }
+
+        dap.configurations['dart'] = {
+            type = 'dart',
+            request = 'launch',
+            name = 'Launch flutter',
+            dartSdkPath = 'home/write/develop/flutter/bin/cache/dart-sdk/',
+            flutterSdkPath = 'home/write/develop/flutter',
+            program = '${workspaceFolder}/lib/main.dart',
+            cwd = '${workspaceFolder}',
         }
     end,
 }
