@@ -93,9 +93,11 @@ vim.keymap.set('n', '<leader>cd', '<cmd>NoNeckPainWidthDown<cr>', { desc = '[C]e
 vim.keymap.set('n', '<leader>1', '<cmd>colorscheme flexoki<cr>')
 vim.keymap.set('n', '<leader>2', '<cmd>colorscheme flexoki2<cr>')
 
--- Floating terminal https://www.youtube.com/watch?v=xVKpx1Zl3ac
-vim.keymap.set('n', '<leader>tt', '<cmd>lua require("floatytermy").create_terminal()<cr>', { desc = '[T]oggle [T]erminal' })
-
 -- Quickfix list
 vim.keymap.set('n', '<A-j>', '<cmd>cnext<CR>zz')
 vim.keymap.set('n', '<A-k>', '<cmd>cprev<CR>zz')
+
+-- Diagnostic ting
+vim.keymap.set('n', '<leader>dd', vim.diagnostic.open_float, { desc = '[D]iagnostic [O]pen float' })
+vim.keymap.set('n', '<leader>dh', vim.diagnostic.hide, { desc = '[D]iagnostic [H]ide' })
+vim.keymap.set('n', '<leader>ds', vim.diagnostic.show, { desc = '[D]iagnostic [S]how' })
