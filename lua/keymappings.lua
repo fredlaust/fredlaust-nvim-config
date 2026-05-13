@@ -101,3 +101,17 @@ vim.keymap.set('n', '<A-k>', '<cmd>cprev<CR>zz')
 vim.keymap.set('n', '<leader>dd', vim.diagnostic.open_float, { desc = '[D]iagnostic [O]pen float' })
 vim.keymap.set('n', '<leader>dh', vim.diagnostic.hide, { desc = '[D]iagnostic [H]ide' })
 vim.keymap.set('n', '<leader>ds', vim.diagnostic.show, { desc = '[D]iagnostic [S]how' })
+
+vim.keymap.set('n', '<leader>dn', function()
+    vim.diagnostic.jump { diagnostic = vim.diagnostic.get_next() }
+    vim.schedule(function()
+        vim.diagnostic.open_float()
+    end)
+end, { desc = '[D]iagnostic [N]ext' })
+
+vim.keymap.set('n', '<leader>dp', function()
+    vim.diagnostic.jump { diagnostic = vim.diagnostic.get_prev() }
+    vim.schedule(function()
+        vim.diagnostic.open_float()
+    end)
+end, { desc = '[D]iagnostic [N]ext' })
