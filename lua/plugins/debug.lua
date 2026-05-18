@@ -81,6 +81,28 @@ return {
             end,
             desc = 'Debug: See last session result.',
         },
+        {
+            '<F4>',
+            function()
+                require('dap').step_back()
+            end,
+            desc = 'Debug: Step back.',
+        },
+        {
+            '<F8>',
+            function()
+                local line_number = tonumber(vim.fn.input 'Goto line: ')
+                require('dap').goto_(line_number)
+            end,
+            desc = 'Debug: Goto line',
+        },
+        {
+            '<leader>dr',
+            function()
+                require('dap').run_to_cursor()
+            end,
+            desc = 'Debug: Run to cursor.',
+        },
     },
     config = function()
         local dap = require 'dap'

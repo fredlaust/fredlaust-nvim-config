@@ -172,7 +172,7 @@ return {
             {
                 clangd = {},
                 gopls = {},
-                basedpyright = {},
+                -- basedpyright = {},
                 -- pyright = {},
                 rust_analyzer = {},
                 tinymist = {},
