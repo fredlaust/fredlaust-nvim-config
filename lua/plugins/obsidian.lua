@@ -14,7 +14,7 @@ return {
 
     dependencies = {
         'nvim-lua/plenary.nvim',
-        'OXY2DEV/markview.nvim',
+        { 'OXY2DEV/markview.nvim', ft = 'markdown' },
     },
     ---@module 'obsidian'
     ---@type obsidian.config
