@@ -10,3 +10,13 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.hl.on_yank()
 	end,
 })
+
+vim.api.nvim_create_autocmd('BufWinEnter', {
+    pattern = '*.typ',
+    callback = function()
+        -- disable markview for this buffer
+        vim.cmd 'Markview disable'
+        -- or if it has a buf-local toggle:
+        -- require("markview").buf_detach(0)
+    end,
+})
