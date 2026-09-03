@@ -90,8 +90,8 @@ vim.keymap.set('n', '<leader>cu', '<cmd>NoNeckPainWidthUp<cr>', { desc = '[C]ent
 vim.keymap.set('n', '<leader>cd', '<cmd>NoNeckPainWidthDown<cr>', { desc = '[C]enter [W]idth [D]own' })
 
 -- Colorscheme
-vim.keymap.set('n', '<leader>1', '<cmd>colorscheme flexoki<cr>')
-vim.keymap.set('n', '<leader>2', '<cmd>colorscheme flexoki2<cr>')
+-- vim.keymap.set('n', '<leader>1', '<cmd>colorscheme flexoki<cr>')
+-- vim.keymap.set('n', '<leader>2', '<cmd>colorscheme flexoki2<cr>')
 
 -- Quickfix list
 vim.keymap.set('n', '<A-j>', '<cmd>cnext<CR>zz')
