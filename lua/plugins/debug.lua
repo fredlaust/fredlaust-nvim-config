@@ -25,35 +25,35 @@ return {
     keys = {
         -- Basic debugging keymaps, feel free to change to your liking!
         {
-            '<F5>',
+            '<leader>5',
             function()
                 require('dap').continue()
             end,
             desc = 'Debug: Start/Continue',
         },
         {
-            '<F6>',
+            '<leader>6',
             function()
                 require('dap').terminate()
             end,
             desc = 'Debug: Terminate',
         },
         {
-            '<F1>',
+            '<leader>1',
             function()
                 require('dap').step_into()
             end,
             desc = 'Debug: Step Into',
         },
         {
-            '<F2>',
+            '<leader>2',
             function()
                 require('dap').step_over()
             end,
             desc = 'Debug: Step Over',
         },
         {
-            '<F3>',
+            '<leader>3',
             function()
                 require('dap').step_out()
             end,
@@ -75,21 +75,21 @@ return {
         },
         -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
         {
-            '<F7>',
+            '<leader>7',
             function()
                 require('dapui').toggle()
             end,
             desc = 'Debug: See last session result.',
         },
         {
-            '<F4>',
+            '<leader>4',
             function()
                 require('dap').step_back()
             end,
             desc = 'Debug: Step back.',
         },
         {
-            '<F8>',
+            '<leader>8',
             function()
                 local line_number = tonumber(vim.fn.input 'Goto line: ')
                 require('dap').goto_(line_number)
