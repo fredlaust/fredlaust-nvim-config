@@ -1,7 +1,8 @@
 -- using lazy.nvim
 return {
 	"S1M0N38/love2d.nvim",
-	event = "VeryLazy",
+	-- event = "VeryLazy",
+	ft = "lua",
 	version = vim.version.range("3"),
 	opts = {
 		path_to_love_bin = "love-git",

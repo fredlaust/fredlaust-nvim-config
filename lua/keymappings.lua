@@ -125,3 +125,40 @@ vim.keymap.set("n", "<leader>dp", function()
 		end)
 	end
 end, { desc = "[D]iagnostic [N]ext" })
+
+--harpoon
+vim.keymap.set("n", "<leader>a", function()
+	require("harpoon"):list():add()
+end, { desc = "Harpoon Add" })
+
+vim.keymap.set("n", "<leader>d", function()
+	require("harpoon"):list():remove()
+end, { desc = "Harpoon Remove" })
+
+vim.keymap.set("n", "<C-e>", function()
+	require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())
+end, { desc = "Harpoon Toggle UI" })
+
+vim.keymap.set("n", "<A-1>", function()
+	require("harpoon"):list():select(1)
+end, { desc = "Har[p]oon Select 1" })
+
+vim.keymap.set("n", "<A-2>", function()
+	require("harpoon"):list():select(2)
+end, { desc = "Har[p]oon Select 2" })
+
+vim.keymap.set("n", "<A-3>", function()
+	require("harpoon"):list():select(3)
+end, { desc = "Har[p]oon Select 3" })
+
+vim.keymap.set("n", "<A-4>", function()
+	require("harpoon"):list():select(4)
+end, { desc = "Har[p]oon Select 4" })
+
+vim.keymap.set("n", "<A-,>", function()
+	require("harpoon"):list():prev()
+end, { desc = "Harpopon Select Previous" })
+
+vim.keymap.set("n", "<A-.>", function()
+	require("harpoon"):list():next()
+end, { desc = "Harpoon Select Next" })
