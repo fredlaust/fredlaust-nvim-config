@@ -107,7 +107,7 @@ vim.keymap.set("n", "<leader>dn", function()
 	if diagnostic == nil then
 		vim.print("No diagnostics")
 	else
-		vim.diagnostic.jump({ diagnostic })
+		vim.diagnostic.jump({ diagnostic = diagnostic })
 		vim.schedule(function()
 			vim.diagnostic.open_float()
 		end)
@@ -119,7 +119,7 @@ vim.keymap.set("n", "<leader>dp", function()
 	if diagnostic == nil then
 		vim.print("No diagnostics")
 	else
-		vim.diagnostic.jump({ diagnostic })
+		vim.diagnostic.jump({ diagnostic = diagnostic })
 		vim.schedule(function()
 			vim.diagnostic.open_float()
 		end)
