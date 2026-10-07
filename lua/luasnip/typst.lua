@@ -84,12 +84,10 @@ return {
 			"= Introduction",
 		})
 	),
-local s = parse
 
-return {
-    s(
-        { trig = 'conf-bib-basic', snippetType = 'snippet', desc = 'Basic conf for bib files' },
-        [[
+	parse(
+		{ trig = "conf-bib-basic", snippetType = "snippet", desc = "Basic conf for bib files" },
+		[[
 #let conf(doc, doctitle: [], show_bib: false) = {
   //Set rules
   set heading(numbering: "1.1")
@@ -133,11 +131,11 @@ https://forum.typst.app/t/how-to-share-bibliography-in-a-multi-file-setup/1605/9
   cite(source, style: "ieee", supplement: page)
 }
 $0]]
-    ),
+	),
 
-    s(
-        { trig = 'conf-math-assignment', snippetType = 'snippet', desc = 'Basic conf for math assignment files' },
-        [[
+	parse(
+		{ trig = "conf-math-assignment", snippetType = "snippet", desc = "Basic conf for math assignment files" },
+		[[
 #let conf(doc, assignment_number: []) = {
 
   let assgn_name = [Assignment #assignment_number]
@@ -158,5 +156,5 @@ $0]]
   doc
 }
     $0]]
-    ),
+	),
 }
